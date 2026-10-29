@@ -1,0 +1,153 @@
+MWANGAZA HARDWARE — VISUAL DESIGN STANDARD
+
+1. Purpose
+
+Establish a consistent, professional, accessible and fast visual experience across every Mwangaza Hardware website page.
+
+2. Design principles
+
+Professional, practical and trustworthy.
+
+Mobile-first and responsive.
+
+Clear product information and prominent customer actions.
+
+Authentic construction and hardware imagery.
+
+Consistent layouts, typography, spacing, colors and components.
+
+No decorative effect may compromise readability, performance or usability.
+
+3. Branding
+
+Use one owner-approved logo.
+
+Define and document the approved color palette and typography before implementation.
+
+Use consistent spacing, border radii, buttons and form controls.
+
+Maintain sufficient text/background contrast.
+
+Do not invent official branding or imply unapproved affiliations.
+
+4. Photography and graphics
+
+Use relevant, high-quality images with appropriate usage rights.
+
+Keep product photographs consistent in proportions and presentation.
+
+Use optimized image formats and appropriate dimensions.
+
+Provide meaningful alternative text for informative images.
+
+Use empty or fallback states when images fail to load.
+
+Inspect AI-generated images for inaccurate products, distorted text, unsafe demonstrations and misleading claims.
+
+Never present a fabricated product photograph as a verified photograph of actual store stock.
+
+5. Page requirements
+
+Home
+
+Clear value proposition, product discovery, key categories, useful customer actions and verified contact options.
+
+Catalogue
+
+Consistent product cards, readable names, units and prices, useful filters, and clear handling of unavailable information.
+
+Materials calculator
+
+Clear inputs, visible quantities and unit prices, readable totals, validation messages and a mobile-friendly estimate summary.
+
+DIY Learning Centre
+
+Readable educational layouts, relevant instructional images, clear steps and visible safety guidance.
+
+Help, About and Contact
+
+Simple navigation, verified business information, accessible forms and functional contact links.
+
+6. Responsive design
+
+Design for narrow phone screens first.
+
+Prevent horizontal overflow.
+
+Ensure forms and buttons are usable by touch.
+
+Test common Android viewport sizes and browsers.
+
+Check larger screens without compromising the mobile layout.
+
+Ensure important content remains usable if decorative images or animations fail.
+
+7. Performance
+
+Compress and appropriately size images.
+
+Lazy-load noncritical images.
+
+Avoid unnecessary video backgrounds and heavy animations.
+
+Minimize third-party scripts and excessive dependencies.
+
+Reserve space for images to reduce layout shifts.
+
+Test page performance after significant visual changes.
+
+8. Accessibility
+
+Provide readable text and adequate contrast.
+
+Label form controls clearly.
+
+Provide useful alternative text for informative images.
+
+Do not use color alone to convey meaning.
+
+Support keyboard navigation where applicable.
+
+Respect reduced-motion preferences.
+
+Ensure error, loading and success states are understandable.
+
+9. Reusable components
+
+Create shared components for navigation, buttons, product cards, form fields, notices, pricing displays and page footers where appropriate.
+
+Do not duplicate styling unnecessarily across pages.
+
+10. Visual QA gate
+
+Before a page is accepted:
+
+Compare it against the approved design direction.
+
+Inspect the mobile layout.
+
+Check image quality, cropping and loading.
+
+Verify typography, spacing, contrast and alignment.
+
+Test every visible button, link and form.
+
+Check empty, loading, error and success states.
+
+Run applicable accessibility and performance checks.
+
+Correct defects and retest.
+
+Record unresolved limitations.
+
+11. Approval and changes
+
+The authorized project owner approves the final logo, brand direction and business-facing visual assets.
+
+Significant visual changes must be tested and reviewed before publication.
+
+A page is not complete merely because it looks attractive in a screenshot. It must also function correctly, load efficiently and remain accessible.
+
+12. Definition of done
+
+A visual change is complete when the implementation matches the approved design, works on relevant devices, passes applicable checks and has no known unresolved release-blocking defects.
