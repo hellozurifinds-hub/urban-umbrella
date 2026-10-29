@@ -1,0 +1,912 @@
+MWANGAZA HARDWARE
+
+PROJECT CONSTITUTION, WEBSITE RELIABILITY & SELF-SERVICE RECOVERY STANDARD
+
+Document status: Proposed master standard for adoption
+Project: Mwangaza Hardware website, digital marketing, customer support, sales and future commission management
+Project owner: To be confirmed by the business owner
+Marketing agency: To be confirmed in a written agreement
+Source of truth: GitHub repository "mwangaza-hardware-demo"
+Effective date: Date this constitution is approved and committed to GitHub
+Version: 1.0.0
+
+---
+
+1. PURPOSE AND AUTHORITY
+
+This constitution establishes the mandatory rules for planning, building, testing, publishing, operating, securing, maintaining and repairing the Mwangaza Hardware website.
+
+Its objectives are to:
+
+1. Minimize website freezing, lag, broken pages, failed forms, data loss and unexpected downtime.
+2. Make routine website management possible through ChatGPT, GitHub and the project owner without routinely hiring a developer.
+3. Require evidence before declaring a feature, correction or release successful.
+4. Protect customers, business records, payments, privacy and the interests of Mwangaza Hardware.
+5. Keep costs under control and avoid unnecessary paid services.
+6. Make future improvements safe, reversible and understandable.
+7. Prevent unapproved changes to prices, policies, commissions, payment destinations or business claims.
+8. Maintain a documented way to diagnose and recover from failures.
+
+Authority rule: This constitution is the governing project specification. Other documents, AI instructions, code comments and individual requests must not silently contradict it.
+
+If a conflict arises, stop the affected change, record the conflict and obtain the appropriate approval before proceeding.
+
+This constitution does not override applicable law, platform requirements, payment-provider requirements or security obligations.
+
+2. THE THREE-PART WORKING SYSTEM
+
+The project will operate through three primary resources.
+
+2.1 ChatGPT
+
+ChatGPT will assist with:
+
+- Translating requirements into clear, small tasks.
+- Explaining code and configuration in understandable language.
+- Writing and reviewing code.
+- Diagnosing errors from logs, screenshots and test results.
+- Preparing GitHub-ready changes and repair instructions.
+- Designing automated tests.
+- Reviewing security, performance, accessibility and usability.
+- Explaining deployment failures and recovery options.
+- Preparing content, catalogue structures, learning materials and marketing plans.
+- Maintaining consistency with this constitution.
+
+ChatGPT must distinguish between a proposed fix, a fix that has been committed, a fix that has passed tests and a fix that has been verified on the live website.
+
+ChatGPT must never claim to have inspected, changed, tested, deployed or restored something unless the relevant action and evidence confirm it.
+
+2.2 GitHub
+
+GitHub will hold the version-controlled source of truth for:
+
+- Website source code.
+- Product and architecture specifications.
+- Project decisions and approved requirements.
+- Automated tests and workflows.
+- AI coding instructions.
+- Security and release checklists.
+- Incident and recovery instructions.
+- Change history and known-good versions.
+
+Secrets, passwords, private keys, customer information and payment credentials must not be stored in public source files.
+
+GitHub is not, by itself, a backup of every external service, database, uploaded image or payment-provider record.
+
+2.3 Project owner
+
+The project owner will:
+
+- Confirm business facts, products, prices, stock, policies and authorized contacts.
+- Review proposed changes and approve sensitive business decisions.
+- Follow the agreed testing and publication process.
+- Provide screenshots, error messages and other evidence when needed.
+- Keep account access and recovery methods secure.
+- Approve spending and paid integrations.
+- Confirm when a release may proceed to production.
+- Keep Mwangaza Hardware and marketing-agency finances appropriately separated.
+
+The owner must never be asked to paste passwords, one-time codes, private API keys or card details into a public repository or ordinary chat.
+
+3. NON-NEGOTIABLE PROJECT RULES
+
+1. No feature is considered complete merely because its code has been written.
+2. No production release is approved while a critical security issue or unresolved release-blocking test failure remains.
+3. No untested change may be described as safe for production.
+4. No live payment integration is enabled before merchant ownership, settlement, fees, security and reconciliation have been verified.
+5. No customer payment is directed to the agency's personal account.
+6. No prices, stock status, discounts, tax rules, delivery fees or commission terms are invented.
+7. No customer-facing AI assistant may invent product availability, claim a payment succeeded without verification or promise an unapproved delivery date.
+8. No change may delete or overwrite important business records without authorization and a recovery plan.
+9. No secrets or customer records may be committed to the public repository.
+10. No deployment is declared successful solely because a GitHub workflow says that it passed.
+11. Every important failure must have a documented diagnostic and recovery route.
+12. Routine repairs must favor simple, understandable solutions over unnecessary complexity.
+13. A change must not silently remove an existing working feature.
+14. Business rules must be tested as well as technical behavior.
+15. When evidence is missing, the status must be recorded as unverified.
+
+4. PROJECT SCOPE
+
+The intended website includes the following modules.
+
+4.1 Public website
+
+- Home page.
+- Product catalogue.
+- Product categories and search.
+- Product prices and units.
+- Availability information when confirmed by the store.
+- Materials cost calculator.
+- DIY Learning Centre.
+- Help and FAQ.
+- About Us.
+- Contact information.
+- Approved WhatsApp, Facebook and TikTok links.
+- Quotation and enquiry forms.
+- Website support chat.
+
+4.2 Marketing agency functions
+
+- Search-engine optimization.
+- Product promotions and educational content.
+- Campaign tracking.
+- Enquiry and quotation attribution.
+- Marketing performance reports.
+- Cost-per-lead reporting when reliable cost and lead data exist.
+- Sales attribution when supported by verified records.
+
+Marketing expenses, agency fees and sales commissions must be tracked separately.
+
+4.3 Future modules
+
+These are planned, not considered operational until implemented and tested:
+
+- M-Pesa payment integration.
+- Visa and Mastercard payments through an approved provider.
+- Customer order history.
+- Protected product and order management.
+- Sales and payment reconciliation.
+- Commission calculation and approval.
+- Commission payout records.
+- Automated WhatsApp messaging.
+- AI-powered customer support.
+- Owner and agency dashboards.
+
+5. REQUIREMENTS AND CHANGE CONTROL
+
+Every feature must have:
+
+- A clear purpose.
+- Defined inputs and expected outputs.
+- Acceptance criteria.
+- Relevant tests.
+- Known limitations.
+- A recovery method appropriate to its risk.
+- A record of any business decision it depends on.
+
+Change procedure
+
+1. Identify the problem or requested improvement.
+2. Read the relevant project documentation.
+3. Determine which modules and business rules could be affected.
+4. Record the intended change and its acceptance criteria.
+5. Inspect the current implementation before editing.
+6. Make the smallest reasonable change.
+7. Run the required automated tests.
+8. Review the resulting code and test output.
+9. Test the affected user journey.
+10. Record the outcome and any remaining risks.
+11. Merge and deploy only when the applicable release gates pass.
+
+If a test fails, investigate the failure before making further unrelated changes.
+
+Changes to payment destinations, commission rules, personal-data handling, access permissions, production secrets or destructive database operations require explicit authorized approval.
+
+6. TECHNICAL ARCHITECTURE
+
+The initial website should remain as simple as reasonably possible.
+
+6.1 Architecture principles
+
+- Use a maintained, well-supported framework and documented dependencies.
+- Keep the presentation layer separate from business rules.
+- Keep sensitive server operations away from public browser code.
+- Use a database only when the required functionality justifies it.
+- Keep the catalogue and calculator usable without an AI service.
+- Make optional integrations replaceable without rebuilding the entire site.
+- Avoid unnecessary libraries, background processes and third-party scripts.
+- Avoid duplicating product prices or business rules across multiple files.
+- Centralize configuration and validate it before deployment.
+- Keep development, preview and production environments separate where supported.
+- Use documented migrations for database structure changes.
+- Never depend on an undocumented manual action to make the website work.
+
+6.2 Graceful degradation
+
+If an optional service fails, the rest of the website should continue working where practical.
+
+Examples:
+
+- If AI support is unavailable, show the FAQ and contact options.
+- If WhatsApp automation fails, retain the normal contact link.
+- If analytics fails, do not block catalogue browsing.
+- If an external image fails, show a sensible fallback.
+- If the network drops during a form submission, explain the problem and prevent accidental duplicate submissions.
+- If the database is unavailable, do not display invented product data or pretend an enquiry was saved.
+
+7. PERFORMANCE AND STABILITY
+
+Performance is a release requirement, not an optional cosmetic improvement.
+
+7.1 Mandatory controls
+
+- Resize and compress images appropriately.
+- Use modern image formats where supported.
+- Load nonessential images and content lazily.
+- Minimize unnecessary JavaScript, CSS and dependencies.
+- Avoid excessive animation and large third-party scripts.
+- Prevent layout shifts when images and other content load.
+- Avoid repeated network requests and inefficient database queries.
+- Paginate or progressively load large catalogues.
+- Cache appropriate public resources without exposing private data.
+- Display clear loading, empty, success and error states.
+- Ensure the website remains usable on common Android devices and mobile browsers.
+
+7.2 Performance targets
+
+Where real-user data is available, aim for the following Core Web Vitals at the 75th percentile:
+
+- Largest Contentful Paint (LCP): 2.5 seconds or less.
+- Interaction to Next Paint (INP): 200 milliseconds or less.
+- Cumulative Layout Shift (CLS): 0.1 or less.
+
+These targets are measured over real user experiences where sufficient data exists. A single laboratory test cannot establish that the targets have been achieved for all visitors.
+
+Before real-user data exists, use repeatable laboratory tests and representative Android-device testing. Record results and investigate regressions.
+
+7.3 Performance release gate
+
+Before release:
+
+- Run an automated build.
+- Run applicable performance and accessibility checks.
+- Check major pages on a narrow mobile viewport.
+- Inspect image loading and page responsiveness.
+- Test the calculator with realistic quantities and catalogue sizes.
+- Check the browser console and network errors.
+- Compare results with the previous known-good version.
+
+A serious regression must be fixed or the release blocked.
+
+8. SECURITY AND PRIVACY
+
+8.1 Access control
+
+- Give each account only the permissions it needs.
+- Protect the production branch and sensitive settings.
+- Enable multifactor authentication where available.
+- Do not share owner credentials with the marketing agency.
+- Separate public visitors, staff, agency and owner permissions where applicable.
+- Remove access when it is no longer required.
+- Use server-side authorization for protected operations.
+
+Hiding a button in the browser is not sufficient access control.
+
+8.2 Secrets
+
+- Never put API keys, passwords, private keys or payment credentials in public code.
+- Use the hosting platform's secret-management features or protected environment variables.
+- Keep privileged credentials server-side.
+- Use separate credentials for test and production environments.
+- Rotate exposed credentials immediately.
+- Remove a leaked secret from active use even if the offending commit is later deleted.
+
+Deleting a secret from the latest file does not necessarily remove it from Git history or copies.
+
+8.3 Input validation and web security
+
+- Validate all inputs on the server whenever a server operation is involved.
+- Escape or safely render user-supplied text.
+- Protect against injection, cross-site scripting, request forgery and unauthorized access as applicable.
+- Apply sensible rate limits to public forms and automated endpoints.
+- Keep dependencies updated and check for known vulnerabilities.
+- Use HTTPS for the live website.
+- Configure secure cookies, headers and session handling where applicable.
+- Avoid exposing detailed internal error traces to visitors.
+- Log security-relevant events without unnecessarily recording personal information.
+
+8.4 Privacy
+
+Collect only information needed for a defined purpose.
+
+Before collecting customer details, explain the relevant purpose and provide an appropriate privacy notice. Define retention, access, correction and deletion procedures consistent with applicable law.
+
+Analytics, marketing messages, cookies and automated communications must be configured according to applicable privacy and consent requirements.
+
+Review the Kenyan Data Protection Act and applicable regulations before launching features that process personal information. Obtain qualified advice if the legal position or risk is unclear.
+
+8.5 Security release gate
+
+Do not launch or continue a materially affected feature while a known critical vulnerability remains unresolved.
+
+Security checks must include:
+
+- Dependency and vulnerability scanning.
+- Secret scanning where available.
+- Authentication and authorization tests.
+- Input validation tests.
+- Production configuration review.
+- Permission and data-access checks.
+- Review of any new third-party integration.
+
+Automated scanning reduces risk but does not prove that the website is secure.
+
+9. CATALOGUE AND MATERIALS CALCULATOR
+
+9.1 Catalogue rules
+
+Every product must have a stable identifier, name, category, unit of sale, price and relevant descriptive information.
+
+Stock status, delivery promises, discounts and product specifications must reflect verified business information.
+
+Sample data must be clearly identified as demonstration data and must never be mistaken for a confirmed selling price.
+
+9.2 Calculator formula
+
+For each line:
+
+Line amount = Quantity × Unit price
+
+Subtotal = Sum of all line amounts
+
+Total = Subtotal − Approved discount + Applicable tax + Applicable delivery charge
+
+Each adjustment must be included only when its rules are confirmed and applicable.
+
+9.3 Calculator tests
+
+Test at least:
+
+- Zero, negative and decimal quantities where relevant.
+- Empty inputs and invalid characters.
+- Very large quantities.
+- Products with different units.
+- Products with missing or unavailable prices.
+- Price changes after an item has been selected.
+- Adding, removing and editing items.
+- Rounding and currency display.
+- Approved discounts and tax rules.
+- Delivery charges where applicable.
+- Empty estimates.
+- Mobile-screen behavior.
+- Copying or submitting an estimate.
+
+The calculator must not silently convert invalid input into a misleading total.
+
+9.4 Catalogue consistency
+
+Where practical, the calculator must read the same authoritative price data used by the catalogue.
+
+If a price changes, affected calculations must update or clearly identify that an earlier estimate is based on an older price.
+
+An estimate is not an order confirmation unless the business explicitly defines and implements that process.
+
+10. DIY LEARNING CENTRE
+
+Educational material should be useful, accurate and appropriately cautious.
+
+Topics may include waterproofing, plumbing materials, roofing, insulation, tile adhesives, solar and efficient lighting, water-saving technology and quantity estimation.
+
+Requirements:
+
+- Distinguish general guidance from professional advice.
+- Identify safety-critical steps and when a qualified professional is required.
+- Do not make unsupported product performance or certification claims.
+- Avoid unsafe electrical, structural, chemical or height-related instructions.
+- Review technical content before publication.
+- Correct inaccurate content promptly.
+- Clearly date or version important technical guidance when useful.
+
+The Learning Centre must not become dependent on an AI service to display already-approved educational content.
+
+11. CUSTOMER SUPPORT AND AUTOMATION
+
+11.1 Support behavior
+
+The support assistant must:
+
+- Use approved product and policy information.
+- Explain how to use the calculator.
+- Help visitors find products and request quotations.
+- Distinguish verified facts from unknown information.
+- Refer uncertain stock, pricing, delivery, refund and payment questions to an authorized person.
+- Offer a contact or human-handoff route.
+- Avoid asking for passwords, card security codes or unnecessary personal information.
+- Never claim an enquiry was submitted unless the system confirms it.
+- Never claim payment was received unless trusted payment records confirm it.
+
+11.2 Failure behavior
+
+If the AI service is unavailable, over budget or returning errors:
+
+- Show the FAQ and normal contact options.
+- Explain that automated assistance is temporarily unavailable.
+- Do not block normal browsing or calculator use.
+- Do not repeatedly retry in a way that creates uncontrolled costs.
+
+11.3 WhatsApp
+
+A click-to-chat link is not the same as automated WhatsApp messaging.
+
+Before enabling automation, verify the official account, provider, message fees, templates, user-consent requirements, webhook security, account eligibility and human handoff.
+
+Do not activate paid messaging without approval of the estimated recurring and usage-based costs.
+
+12. MARKETING AND SALES ATTRIBUTION
+
+Marketing activity must be measurable without misleading the owner.
+
+Where technically and legally appropriate, record:
+
+- Website visits.
+- Product views.
+- Enquiries.
+- Quotation requests.
+- Campaign source.
+- Confirmed orders and sales.
+- Marketing costs.
+- Attributed revenue.
+- Cost per lead where the data is sufficient.
+
+Do not claim that a marketing campaign caused a sale solely because the visitor arrived through a campaign link.
+
+Use consistent campaign tracking, defined attribution rules and clear reporting periods.
+
+Advertising expenditure must be separately identifiable from agency fees, commission and store revenue.
+
+No campaign may be launched with unapproved spending or unsupported product claims.
+
+13. FUTURE PAYMENTS AND FINANCIAL CONTROLS
+
+Live payments are outside the initial static website release. They require a separate approval and implementation process.
+
+13.1 Payment requirements
+
+Before activation:
+
+- Confirm the authorized merchant and settlement account.
+- Verify the provider's current fees, eligibility, settlement rules and supported methods.
+- Test in the provider's sandbox or equivalent test environment.
+- Protect credentials server-side.
+- Validate payment notifications using the provider's documented security mechanism.
+- Handle pending, successful, failed, cancelled, refunded, reversed and disputed payments.
+- Prevent duplicate orders and duplicate financial entries.
+- Reconcile orders against trusted provider records.
+- Never store raw card numbers or card security codes.
+- Never treat a customer screenshot as sufficient proof of payment.
+
+13.2 Commission calculation
+
+The store's gross receipts must not be routed through the agency's personal account.
+
+The commission system must follow a written agreement defining:
+
+- Commission rate or calculation method.
+- Eligible products or sales.
+- When commission is earned.
+- Treatment of discounts, refunds and reversals.
+- Taxes and other applicable adjustments.
+- Approval process.
+- Payout timing and method.
+- Dispute resolution and reconciliation.
+
+The system may calculate proposed commission automatically, but it must not invent the rate or silently change the agreement.
+
+13.3 Commission audit
+
+Keep a traceable record of:
+
+- Order and sale identifiers.
+- Payment status and reference.
+- Gross sale amount.
+- Approved deductions and adjustments.
+- Commission basis and calculation.
+- Commission earned.
+- Commission approved.
+- Commission paid.
+- Outstanding balance.
+- Refunds and reversals.
+- Manual adjustments and their reasons.
+- Reconciliation status and discrepancies.
+
+The owner must be able to inspect and reconcile records. Sensitive records must be access-controlled and backed up.
+
+The commission system is not financially ready until the end-to-end process has been tested with test transactions and reconciliation evidence.
+
+14. TESTING STANDARD
+
+Testing must be continuous, not postponed until the end of the project.
+
+14.1 Automated checks
+
+As applicable, run:
+
+- Code formatting and linting.
+- Type checking.
+- Unit tests.
+- Integration tests.
+- Production build.
+- Link and route checks.
+- Calculator tests.
+- Form validation tests.
+- Accessibility checks.
+- Dependency and security checks.
+- Browser-based end-to-end tests.
+
+Tests must fail clearly and report enough information to investigate the failure.
+
+14.2 Manual tests
+
+Test the actual user journey on Android and relevant mobile browsers:
+
+- Home page opens.
+- Navigation works.
+- Product search and filters work.
+- Prices and units display correctly.
+- Calculator totals are correct.
+- Enquiry forms validate and submit.
+- Error messages are understandable.
+- Support fallback works.
+- Social and contact links open the intended destinations.
+- Pages remain usable with a slow or unstable connection.
+- The layout works at common phone widths.
+
+14.3 Regression tests
+
+When a problem is corrected, add a test for it when practical so the same problem is less likely to return.
+
+A passing test suite does not establish that every possible user journey is correct. Record the coverage and any untested areas.
+
+15. GITHUB GOVERNANCE
+
+The repository must contain the following documents, added progressively:
+
+- "README.md" — project overview and setup.
+- "PROJECT_CONSTITUTION.md" — this governing standard.
+- "PRODUCT_BLUEPRINT.md" — approved product scope and user journeys.
+- "FEATURE_ROADMAP.md" — implementation phases and priorities.
+- "DECISIONS.md" — important decisions and their reasons.
+- "TESTING_CHECKLIST.md" — feature and regression testing.
+- "RELIABILITY_PLAN.md" — performance, availability and recovery strategy.
+- "SECURITY_CHECKLIST.md" — security controls and verification.
+- "RELEASE_CHECKLIST.md" — mandatory release gates.
+- "INCIDENT_RESPONSE.md" — how to respond to outages and security incidents.
+- "BACKUP_AND_RESTORE.md" — backup and recovery procedures.
+- "CHANGELOG.md" — material changes by release.
+- ".github/copilot-instructions.md" — instructions for AI coding tools.
+- Automated test and workflow files appropriate to the chosen stack.
+
+Branch protection
+
+Where supported by the repository and plan:
+
+- Protect the production branch.
+- Require successful automated checks.
+- Require changes to be reviewed before merging where practical.
+- Prevent accidental force pushes and unauthorized deletion.
+- Keep production changes traceable to a commit or pull request.
+
+If the repository's plan does not support a particular rule, document the limitation and use the strongest available alternative.
+
+Do not assume that merely creating an instruction file activates branch protection or automated testing.
+
+16. MANDATORY WEBSITE RELEASE GATES
+
+A release may proceed only when every applicable gate is passed or an explicitly authorized, documented exception is recorded.
+
+Gate 1: Requirements
+
+- The change has an approved purpose.
+- Acceptance criteria are defined.
+- Affected features and business rules are identified.
+
+Gate 2: Code quality
+
+- Changes are understandable and reviewable.
+- No unrelated working functionality has been removed.
+- Required linting, type checks and builds pass.
+
+Gate 3: Automated tests
+
+- Required unit, integration and end-to-end tests pass.
+- The relevant regression tests pass.
+- Failures have been investigated rather than ignored.
+
+Gate 4: Security
+
+- No known unresolved critical vulnerability affects the release.
+- No secrets have been exposed.
+- Access controls and production configuration have been reviewed.
+- Sensitive operations are protected server-side.
+
+Gate 5: Performance
+
+- Major pages have been tested.
+- No unacceptable performance regression is known.
+- Images and dependencies are reasonably optimized.
+- Mobile behavior has been checked.
+
+Gate 6: Usability and accessibility
+
+- Navigation, forms, labels, contrast and error states have been checked.
+- The relevant user journey works on a mobile device.
+- Keyboard and assistive-technology behavior is tested where applicable.
+
+Gate 7: Business accuracy
+
+- Prices, product details, contacts and policies are approved.
+- Demonstration data cannot be mistaken for live data.
+- No unapproved commission or payment rule has been introduced.
+
+Gate 8: Data and recovery
+
+- Relevant data has been backed up where applicable.
+- Database changes have a documented migration and recovery plan.
+- The previous known-good version or an appropriate rollback procedure is available.
+- Destructive operations have been reviewed and authorized.
+
+Gate 9: Deployment
+
+- The production build succeeds.
+- Required environment settings are present.
+- The deployed version corresponds to the approved source revision.
+- The deployment provider reports success.
+
+Gate 10: Live verification
+
+- The live home page and key routes open.
+- The affected feature works on a real device.
+- Forms, links and important calculations work.
+- Browser errors and relevant service logs have been checked.
+- No false success messages are shown.
+
+Gate 11: Monitoring
+
+- Monitoring and error reporting are enabled where supported.
+- A way to detect and investigate failures exists.
+- The responsible person knows where to find logs and deployment history.
+
+Gate 12: Sign-off
+
+- The evidence and remaining limitations are recorded.
+- The authorized release decision is documented.
+- Any exception has an owner, reason and expiry or follow-up date.
+
+A checklist marked complete without evidence is not a passed gate.
+
+Payment, authentication, database and commission releases require additional tests specific to those functions.
+
+17. SELF-SERVICE DIAGNOSTICS AND REPAIR
+
+The default repair process is:
+
+1. Stop: Do not make multiple speculative edits.
+2. Describe: Record what is broken, when it started and who is affected.
+3. Capture: Obtain the exact error message, screenshot, workflow log or relevant URL.
+4. Locate: Identify the last change and affected component.
+5. Compare: Check the previous known-good version and recent deployment history.
+6. Diagnose: Use ChatGPT to interpret the evidence and propose a testable cause.
+7. Back up: Preserve affected data or configuration before a risky repair.
+8. Change: Make one small correction.
+9. Test: Run the failed test plus relevant regression tests.
+10. Verify: Test the repaired behavior in preview or staging, then production where appropriate.
+11. Record: Document the cause, correction and outcome.
+12. Escalate safely: If evidence is insufficient or the repair risks data, money or security, stop and obtain the necessary authorized help.
+
+Never make random production edits to see whether something improves.
+
+17.1 Repair classifications
+
+Class A: Routine and low risk
+Examples: incorrect text, a broken internal link, a spacing problem or a small layout defect.
+
+Approach: diagnose, make a small change, run checks and verify on mobile.
+
+Class B: Functional or integration problem
+Examples: calculator defects, form failures, failed API requests or deployment errors.
+
+Approach: inspect logs and inputs, reproduce the failure, correct the cause, add a regression test and verify the full user journey.
+
+Class C: High-risk incident
+Examples: exposed credentials, unauthorized access, corrupted financial data, incorrect payment settlement or suspected personal-data breach.
+
+Approach: contain the problem, preserve evidence, protect accounts and data, notify the authorized owner, follow applicable reporting requirements and restore only through a verified procedure. Do not attempt speculative fixes.
+
+17.2 What self-service means
+
+The project should be designed so routine code changes, configuration corrections, content updates, test runs, deployments and rollbacks can be performed through ChatGPT-assisted GitHub workflows and documented hosting controls.
+
+It does not guarantee that every incident can be solved without a specialist. Hosting outages, payment-provider failures, compromised accounts, complex data corruption and legal or regulatory questions may require the relevant provider or qualified professional.
+
+The objective is to minimize such dependency while recognizing its limits honestly.
+
+18. BACKUP, RESTORE AND ROLLBACK
+
+Maintain separate recovery arrangements for:
+
+- Source code.
+- Database records.
+- Product images and uploaded documents.
+- Hosting and DNS configuration.
+- Required environment configuration.
+- Payment and reconciliation records held by authorized providers.
+
+Never place secret values in backups stored in public repositories.
+
+Required procedures
+
+- Define which data must be backed up and how often.
+- Define a retention period appropriate to the data.
+- Protect backup access.
+- Document restoration steps.
+- Test restoration in a safe environment.
+- Record the last successful restore test.
+- Identify the last known-good application release.
+- Document how to reverse a failed deployment.
+- Ensure a rollback does not destroy newer legitimate orders or financial records.
+
+A backup is not considered reliable merely because a backup file exists. A restoration test must demonstrate that it can be recovered.
+
+19. INCIDENT RESPONSE
+
+For an outage or serious failure:
+
+Step 1: Record the affected page, start time, error and impact.
+
+Step 2: Check hosting status, deployment history, logs and relevant external-service status.
+
+Step 3: If the failure began after a deployment, assess whether a verified rollback is safer than a new code change.
+
+Step 4: For security incidents, revoke or rotate compromised credentials, restrict affected access and preserve evidence.
+
+Step 5: For payment or financial discrepancies, stop affected automated financial actions and reconcile against trusted provider records.
+
+Step 6: Restore service using a verified fix or recovery process.
+
+Step 7: Test the repaired user journey and monitor it.
+
+Step 8: Record the root cause, corrective action and a preventive test or control.
+
+If a personal-data breach or financial incident occurs, follow the applicable legal, contractual and provider notification obligations. Do not delay required reporting while attempting to solve the technical issue.
+
+20. COST CONTROL
+
+Every external service must have a defined purpose and a cost assessment.
+
+Before enabling a paid service, document:
+
+- Setup fee.
+- Monthly or annual fee.
+- Usage-based charges.
+- Payment-processing fees.
+- Expected volume and cost range.
+- Spending limits and alerts where available.
+- Cancellation procedure.
+- Free or lower-cost alternative.
+- Data export and exit options.
+
+Avoid unnecessary paid plugins, duplicate analytics systems, excessive AI calls and infrastructure that is not yet justified by actual usage.
+
+The website must retain core browsing and calculator functionality when optional paid services are unavailable.
+
+No service may be represented as free or within budget without checking its applicable terms and usage charges.
+
+21. DOCUMENTATION AND LEARNING
+
+For each important technical change, record:
+
+- What changed.
+- Why it changed.
+- Which files or settings were affected.
+- How it was tested.
+- Whether it was deployed.
+- Any remaining risks.
+- How to reverse the change where appropriate.
+
+Instructions must be understandable to a non-developer using an Android phone and GitHub.
+
+Where a task requires copying code, specify the exact file and location. Where it requires changing a setting, identify the setting and its expected value. Ask for a screenshot or test result before proceeding when verification is necessary.
+
+Do not give a long sequence of dependent instructions when the next step should first be verified.
+
+22. ACCESSIBILITY AND BROWSER COMPATIBILITY
+
+The website must:
+
+- Use readable text and adequate contrast.
+- Provide meaningful labels for form controls.
+- Display clear validation and error messages.
+- Support keyboard navigation where applicable.
+- Provide useful alternative text for meaningful images.
+- Avoid relying on color alone to communicate errors.
+- Use adequately sized mobile interaction targets.
+- Remain usable when optional animations or scripts fail.
+- Be tested in common Android browsers and relevant viewport sizes.
+
+Accessibility checks must be automated where possible and supplemented by manual testing.
+
+23. LEGAL AND BUSINESS APPROVAL
+
+Before the public launch, confirm the applicable requirements for:
+
+- Privacy notice and personal-data processing.
+- Terms of use.
+- Customer enquiries and marketing consent.
+- Consumer information and advertising claims.
+- Refunds, cancellations and delivery terms if orders are introduced.
+- Tax and invoice treatment where applicable.
+- Product claims and intellectual property.
+- Agency compensation and commission agreements.
+- Payment handling and financial records.
+
+Only verified company information may appear as fact on the website.
+
+The business owner must approve the use of company branding, official contacts, product prices, stock claims, policies and payment arrangements.
+
+24. PROJECT PHASES
+
+The implementation order is:
+
+Phase 0 — Governance
+Adopt this constitution, establish repository documents, confirm account ownership and configure the safest available GitHub protections.
+
+Phase 1 — Website foundation
+Choose the stack, establish the project structure, create a basic build and deployment workflow, and verify a working preview.
+
+Phase 2 — Public website
+Build responsive navigation, Home, About, Help and Contact pages.
+
+Phase 3 — Product catalogue
+Add product categories, search, units, approved prices and clearly labelled sample data where required.
+
+Phase 4 — Materials calculator
+Implement the formula, input validation, price linkage and automated tests.
+
+Phase 5 — DIY Learning Centre
+Add reviewed educational content and safe guidance.
+
+Phase 6 — Enquiries and support
+Add validated enquiry forms, basic scripted support, contact links and safe failure handling.
+
+Phase 7 — Marketing measurement
+Add proportionate analytics, campaign attribution and reporting after privacy and consent requirements are reviewed.
+
+Phase 8 — Reliability hardening
+Improve performance, security, accessibility, monitoring, backups and incident recovery based on evidence.
+
+Phase 9 — Payment and commission preparation
+Confirm written business terms, select a verified provider, design protected financial records and test the entire process in a non-production environment.
+
+Phase 10 — Controlled production launch
+Pass all applicable release gates, verify the live website and monitor for regressions.
+
+No phase is considered complete merely because its estimated time has elapsed.
+
+25. ACCEPTANCE AND AMENDMENTS
+
+This constitution becomes the project's governing standard when the authorized project owner approves it and the approved version is committed to GitHub.
+
+Material amendments must:
+
+1. Identify the proposed change.
+2. Explain why it is needed.
+3. Identify the affected requirements.
+4. Assess security, financial, privacy and reliability consequences.
+5. Update relevant tests and documentation.
+6. Receive the required approval.
+7. Be recorded in the project decision history.
+
+A change must not silently weaken a release gate or remove an established security control.
+
+Emergency exceptions must be documented, limited in scope, approved by the appropriate person and reviewed after the incident.
+
+26. DEFINITION OF DONE
+
+A feature is done only when:
+
+- It satisfies its approved requirements.
+- The code is committed to the correct branch.
+- Applicable automated checks pass.
+- Relevant regression tests pass.
+- The feature has been manually verified where needed.
+- Security and privacy implications have been reviewed.
+- Documentation has been updated.
+- Recovery or rollback arrangements exist where appropriate.
+- Remaining limitations are recorded.
+
+A release is verified in production only when the approved version has been deployed and the relevant live checks have passed.
+
+A project is not guaranteed never to fail. Its reliability is demonstrated by measured performance, passing tests, secure practices, recoverable data, documented incident handling and verified releases.
+
+Final governing principle: We do not rely on memory, assumptions or promises. We rely on documented rules, automated checks, evidence, controlled changes and tested recovery procedures.
