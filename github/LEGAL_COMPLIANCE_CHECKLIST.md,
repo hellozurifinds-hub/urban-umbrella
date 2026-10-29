@@ -1,0 +1,67 @@
+Mwangaza Hardware Website — Legal Compliance Checklist
+
+Status: Draft
+Business owner approval: Pending
+Last reviewed: 2026-10-29
+
+1. Business authorization
+
+- [ ] Obtain the owner's written approval to build and publish the website.
+- [ ] Confirm the business's legal name and authorized contact details.
+- [ ] Obtain approval to use the business name, logo, photographs and product information.
+- [ ] Agree on the marketing agency's responsibilities in writing.
+- [ ] Agree on commission calculation, attribution, reconciliation and payout terms before commission activity begins.
+
+2. Privacy and personal data
+
+- [ ] Identify every personal-data field collected and why it is needed.
+- [ ] Identify where enquiries and customer records will be stored.
+- [ ] Document who can access customer information.
+- [ ] Draft and review "PRIVACY_POLICY.md".
+- [ ] Define data retention, deletion, security and incident-response procedures.
+- [ ] Establish a process for handling privacy requests and complaints.
+- [ ] Assess applicable Kenyan data-protection obligations, including any registration requirements.
+- [ ] Review third-party services, analytics, hosting and WhatsApp integrations before enabling them.
+
+3. Website terms and customer protection
+
+- [ ] Draft and review "TERMS_AND_CONDITIONS.md".
+- [ ] Verify product descriptions, prices and availability before publication.
+- [ ] Clearly distinguish estimates, quotations, confirmed orders and completed payments.
+- [ ] Document delivery, collection, cancellations, returns, refunds and complaint procedures.
+- [ ] Draft "RETURNS_REFUNDS_AND_CANCELLATIONS.md" to reflect approved store policy and applicable law.
+- [ ] Ensure customer-facing claims are accurate and not misleading.
+
+4. Cookies, analytics and marketing
+
+- [ ] Document analytics and tracking technologies used.
+- [ ] Draft "COOKIE_AND_ANALYTICS_NOTICE.md" where applicable.
+- [ ] Review consent and opt-out requirements before enabling tracking or marketing.
+- [ ] Keep promotional communications separate from messages needed to answer customer enquiries.
+- [ ] Verify authorization and provider requirements before enabling WhatsApp automation.
+
+5. Payments and financial controls — future phase
+
+- [ ] Obtain owner approval before enabling payment collection.
+- [ ] Verify the authorized business payment account and payment provider.
+- [ ] Document transaction confirmation, reconciliation, refunds and dispute handling.
+- [ ] Keep payment credentials and provider secrets out of public code.
+- [ ] Test payment failures, duplicate notifications and refunds before launch.
+- [ ] Finalize the written agency and commission agreement before calculating or paying commission.
+
+6. Launch approval
+
+- [ ] Review the applicable legal requirements with a qualified Kenyan professional where needed.
+- [ ] Verify all business details and approved policies.
+- [ ] Test privacy notices, forms, consent choices and complaint channels.
+- [ ] Confirm no unapproved customer-data collection or live payments are enabled.
+- [ ] Record owner approval and outstanding risks before public launch.
+
+Status definitions
+
+- Not started: Work has not begun.
+- In progress: Work is underway.
+- Verified: Evidence has been checked and recorded.
+- Requires legal review: A qualified professional or relevant authority must clarify the requirement.
+
+Rule: Do not mark a requirement Verified without evidence. This checklist does not itself establish legal compliance.
