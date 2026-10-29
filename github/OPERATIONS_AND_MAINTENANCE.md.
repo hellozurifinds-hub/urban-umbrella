@@ -1,0 +1,450 @@
+MWANGAZA HARDWARE
+
+OPERATIONS AND MAINTENANCE STANDARD
+
+Document: "OPERATIONS_AND_MAINTENANCE.md"
+Project: Mwangaza Hardware website and digital services
+Status: Proposed for approval and adoption
+Version: 1.0.0
+Governing document: "PROJECT_CONSTITUTION.md"
+
+1. PURPOSE
+
+This document defines how the website will be operated, monitored, maintained, recovered and transferred without depending on a developer for routine tasks.
+
+The operating model is:
+
+- Project owner: approves business decisions, spending, access and releases.
+- ChatGPT: assists with diagnosis, code changes, test design, documentation and recovery instructions.
+- GitHub: preserves source history, change records, automated checks and deployment workflows.
+- Hosting and service providers: provide infrastructure, status information, backups and account-level recovery capabilities as supported.
+
+No person or tool may claim an issue is resolved without evidence.
+
+2. ACCOUNT OWNERSHIP AND ACCESS
+
+2.1 Required ownership
+
+The authorized business owner must control, or have documented administrative access to:
+
+- Domain registration.
+- DNS configuration.
+- Hosting and deployment.
+- GitHub repository and organization, where applicable.
+- Business email and account recovery methods.
+- Analytics and search-console accounts.
+- WhatsApp Business and other official social accounts.
+- Payment-provider merchant accounts when introduced.
+- Database and backup services when introduced.
+
+The marketing agency must not be the sole holder of an essential account or recovery method.
+
+2.2 Account protection
+
+- Use unique passwords and a password manager.
+- Enable multifactor authentication wherever available.
+- Keep recovery codes in a secure location outside the repository.
+- Review account access periodically and after personnel changes.
+- Remove access that is no longer necessary.
+- Never share one-time verification codes in chat.
+- Never commit secrets or recovery codes to GitHub.
+
+2.3 Renewal and billing records
+
+Maintain a private register of each service, account owner, renewal date, billing method, cost, recovery route and cancellation process.
+
+Do not store passwords, payment-card details or secret keys in that register.
+
+Set renewal reminders sufficiently early to prevent domain, hosting or business-email expiration.
+
+3. SINGLE POINTS OF FAILURE
+
+The project must avoid depending on one person, one account, one provider or one undocumented procedure.
+
+At minimum:
+
+- Keep source code in version control.
+- Maintain secure account-recovery arrangements.
+- Document how to deploy the last known-good release.
+- Keep independent backups of important business data.
+- Document how to export data from essential services.
+- Maintain alternative customer-contact methods.
+- Ensure the calculator and educational content do not depend on AI availability.
+- Document what happens if the hosting provider or messaging provider is unavailable.
+
+Where a service cannot be made redundant economically, document the risk, its impact and the recovery plan.
+
+4. WEBSITE AVAILABILITY MONITORING
+
+4.1 Required checks
+
+Use an appropriate uptime monitor or hosting-provider health check to test the live website at a reasonable interval.
+
+Monitor, where technically supported:
+
+- Website availability.
+- Critical page responses.
+- Deployment failures.
+- Application errors.
+- Failed enquiry submissions.
+- Database connectivity.
+- Storage or service limits.
+- External API failures.
+- Payment notification failures when payments are introduced.
+
+Monitoring must not expose private customer data.
+
+4.2 Alerts
+
+Choose an alert destination controlled by the authorized owner.
+
+Define:
+
+- Which events generate alerts.
+- Who responds.
+- How urgent failures are prioritized.
+- How to acknowledge and close an incident.
+- What to do if the alerting service itself fails.
+
+A green uptime indicator does not prove that the calculator, enquiry form or payment workflow works. Important user journeys require separate checks.
+
+5. NO-SILENT-FAILURE RULE
+
+Every important operation must have a detectable outcome.
+
+Examples:
+
+- An enquiry must be confirmed only after the server or service confirms successful receipt.
+- A failed enquiry must display a useful error and provide an alternative contact method.
+- A payment must not be marked successful merely because a user returned to the website.
+- A failed backup must generate a detectable warning.
+- A deployment must be verified against the intended commit.
+- A failed AI request must fall back to normal help information.
+
+Logs should record enough technical context to diagnose failures without unnecessarily storing personal information, passwords, tokens or payment details.
+
+6. ENQUIRY AND EMAIL OPERATIONS
+
+Before the public launch:
+
+1. Submit test enquiries from a real phone.
+2. Verify that the intended recipient receives them.
+3. Check spam and junk folders.
+4. Confirm that visitors receive accurate success or failure feedback.
+5. Test invalid input and missing fields.
+6. Test duplicate submissions and interrupted connections.
+7. Verify that failed delivery can be detected.
+8. Document an alternative contact method.
+
+If the website sends email from its own domain, configure appropriate sender authentication, including SPF, DKIM and DMARC where applicable to the chosen mail setup.
+
+Use rate limits, input validation and appropriate spam controls. Do not expose internal recipient addresses unnecessarily or publish private enquiry records.
+
+7. CONTENT AND PRODUCT MANAGEMENT
+
+Every product and business fact must have a reliable source.
+
+Maintain a controlled process for updating:
+
+- Product names and categories.
+- Prices and units.
+- Product images and descriptions.
+- Stock or availability information.
+- Discounts and delivery charges.
+- Contact details.
+- DIY articles.
+- FAQs and policies.
+- Marketing promotions.
+
+Content update procedure
+
+1. Identify the information that needs updating.
+2. Confirm the new information with an authorized source.
+3. Make the smallest relevant change.
+4. Check spelling, links, units and calculations.
+5. Preview the change on mobile.
+6. Publish through the approved workflow.
+7. Confirm that the live page displays the intended information.
+8. Record important changes where appropriate.
+
+Never invent prices or display unconfirmed stock availability.
+
+If a price update affects a quotation or estimate, follow the approved rules for refreshing existing calculations and identifying outdated estimates.
+
+8. BACKUPS AND DATA EXPORTS
+
+8.1 Data requiring protection
+
+Depending on the features actually deployed, protect:
+
+- Source code and configuration templates.
+- Product catalogue.
+- Product images and uploaded documents.
+- Enquiries and customer records.
+- Orders and quotations.
+- Payment and reconciliation records.
+- Commission calculations and approvals.
+- Relevant database structure and migration history.
+
+Keep secrets separate from ordinary backups and protect backup access.
+
+8.2 Backup policy
+
+For each data store, document:
+
+- What is backed up.
+- Backup frequency.
+- Retention period.
+- Storage location.
+- Encryption and access protection.
+- Who can restore it.
+- Expected recovery time.
+- Acceptable data-loss window.
+
+Choose backup frequency according to the importance and change rate of the data. Financial records and live orders require stricter protection than replaceable demonstration content.
+
+8.3 Restore testing
+
+A backup is not verified until a restoration test succeeds.
+
+- Restore into a safe, separate environment.
+- Confirm that the required records and files are present.
+- Check data consistency.
+- Verify that the restored application can use the data.
+- Record the test date, result and issues.
+- Correct failed restore procedures before relying on them.
+
+Do not overwrite current production data during a test restore.
+
+9. DEPENDENCY AND SECURITY MAINTENANCE
+
+On a regular schedule:
+
+- Review dependency vulnerability alerts.
+- Check for abandoned or unsupported packages.
+- Update dependencies in small, reviewable groups.
+- Run the full applicable test suite after updates.
+- Review account access and permissions.
+- Check for accidental secret exposure.
+- Review hosting and framework security notices.
+- Verify that backup and restore procedures remain valid.
+
+Do not blindly apply major dependency upgrades to production.
+
+For every meaningful update, preserve the previous known-good version and verify the build, key user journeys and rollback method.
+
+10. PERFORMANCE AND MOBILE MAINTENANCE
+
+Periodically test the website on representative Android devices and mobile browsers.
+
+Check:
+
+- Page loading speed.
+- Layout stability.
+- Catalogue search and filtering.
+- Calculator responsiveness.
+- Form submission.
+- Image loading.
+- Navigation and tap targets.
+- Error messages.
+- Accessibility.
+- Behavior on slow or interrupted connections.
+
+Use repeatable measurements where possible and compare results with earlier measurements.
+
+Investigate significant regressions rather than assuming that a successful deployment means acceptable performance.
+
+11. DOMAIN, HOSTING AND PROVIDER PORTABILITY
+
+Maintain documented export and migration procedures for essential services.
+
+The project must know how to:
+
+- Export source code.
+- Export the product catalogue and business records.
+- Export database data where applicable.
+- Preserve uploaded images and documents.
+- Recreate hosting and environment configuration.
+- Update DNS safely.
+- Restore the previous deployment.
+- Move to an alternative provider if necessary.
+
+Before adopting a service, assess its export facilities, lock-in risks, recurring fees and exit procedure.
+
+Never assume that deleting an account or switching providers preserves the underlying data.
+
+12. INCIDENT SEVERITY AND RESPONSE
+
+Critical
+
+Examples include exposed credentials, unauthorized access, suspected serious data breaches, incorrect payment handling or corruption of financial records.
+
+Actions:
+
+1. Stop affected automated operations where safe.
+2. Restrict access or revoke compromised credentials.
+3. Preserve relevant logs and evidence.
+4. Notify the authorized owner immediately.
+5. Follow applicable legal and provider notification obligations.
+6. Restore only through a verified process.
+7. Require explicit review before resuming affected financial or sensitive operations.
+
+High
+
+Examples include the website being unavailable, all enquiries failing or a major user journey being broken.
+
+Actions:
+
+1. Confirm the impact.
+2. Inspect provider status, logs and recent deployments.
+3. Assess whether rollback is safer than a new fix.
+4. Restore service using a verified procedure.
+5. Test the affected user journey.
+6. Record the cause and prevention measure.
+
+Normal
+
+Examples include minor layout defects, outdated content or a noncritical broken link.
+
+Actions:
+
+1. Record the defect.
+2. Prioritize it.
+3. Make a small correction.
+4. Run the relevant tests.
+5. Verify the result and document the change.
+
+13. SELF-SERVICE REPAIR PROCEDURE
+
+For every defect, follow this sequence:
+
+1. Capture the exact error, screenshot, URL or failed workflow log.
+2. Identify when the problem started.
+3. Check the most recent change or deployment.
+4. Consult the relevant project instructions.
+5. Ask ChatGPT to explain the evidence and propose a testable diagnosis.
+6. Preserve affected data or configuration before risky changes.
+7. Make one controlled change.
+8. Run the relevant tests and regression checks.
+9. Verify the fix in preview or staging where available.
+10. Deploy only after the applicable gates pass.
+11. Confirm the result on the live website.
+12. Record the cause, fix and any remaining risk.
+
+Do not repeat speculative edits when the evidence does not support the proposed cause.
+
+For complex incidents, payment discrepancies, serious security issues or unrecoverable data problems, stop and involve the relevant provider or qualified specialist where necessary.
+
+14. RELEASE AND ROLLBACK OPERATIONS
+
+Before each release:
+
+- Confirm the approved source revision.
+- Confirm automated checks pass.
+- Verify the production configuration.
+- Check relevant backups and database migrations.
+- Identify the last known-good release.
+- Confirm the rollback procedure.
+- Complete the applicable release checklist.
+
+After deployment:
+
+- Confirm the intended version is live.
+- Check the home page and affected routes.
+- Test the changed user journey.
+- Inspect relevant errors and logs.
+- Confirm important forms and integrations work.
+- Monitor for regressions.
+
+If a release causes a serious problem, assess rollback promptly. A rollback must not destroy newer legitimate orders or financial records.
+
+15. ROUTINE MAINTENANCE SCHEDULE
+
+After every code change
+
+- Run applicable automated tests.
+- Review security and functionality impacts.
+- Confirm the relevant user journey.
+- Record the change and result.
+
+Weekly
+
+- Review uptime and error reports.
+- Check enquiry delivery.
+- Inspect unresolved issues and dependency alerts.
+- Verify important contact links.
+- Review hosting usage and unusual cost increases.
+
+Monthly
+
+- Review account access and spending.
+- Check domain and service renewal dates.
+- Review mobile performance and accessibility.
+- Inspect product and policy accuracy.
+- Check backup completion.
+- Review privacy and security alerts.
+- Review analytics and enquiry trends.
+
+Periodically, based on risk
+
+- Perform a restore test.
+- Test incident and rollback procedures.
+- Review provider portability.
+- Review the security configuration.
+- Reassess the service budget and architecture.
+
+The owner must set actual dates and assign responsibility. This schedule is a proposed minimum operating routine, not evidence that the checks have already been configured.
+
+16. COST AND SERVICE CONTROL
+
+Before enabling a paid service, document:
+
+- Setup cost.
+- Recurring cost.
+- Usage-based charges.
+- Expected monthly volume and cost.
+- Available spending limits and alerts.
+- Cancellation procedure.
+- Export and migration options.
+- A lower-cost alternative.
+
+No paid integration may be activated without the required approval.
+
+Where possible, preserve core browsing, educational content and calculator functionality when AI, messaging, analytics or other optional services are unavailable.
+
+17. RECORDS AND ACCOUNTABILITY
+
+Maintain a record of:
+
+- Significant releases.
+- Incidents and their causes.
+- Recovery actions.
+- Backup and restore tests.
+- Important configuration changes.
+- Security fixes.
+- Provider and billing changes.
+- Approved exceptions.
+- Unresolved operational risks.
+
+Do not store passwords, private keys, card security codes or unnecessary personal information in these records.
+
+18. ACCEPTANCE CRITERIA
+
+This operating standard is implemented only when the relevant controls have been configured and verified.
+
+Acceptance requires evidence that:
+
+- Essential account ownership and recovery methods are documented.
+- Monitoring and alert destinations are configured where applicable.
+- Enquiry delivery has been tested.
+- Backup and restore procedures exist for each critical data store.
+- A safe deployment and rollback procedure has been tested.
+- Dependency and security review processes are defined.
+- Product updates have a controlled workflow.
+- Incident response instructions are accessible.
+- Data-export and provider-exit procedures are documented.
+- Routine maintenance responsibilities are assigned.
+
+Any control that cannot yet be implemented must be recorded as a limitation with an owner and a planned resolution.
+
+Final rule: Routine operations must be understandable and repeatable by the project owner using ChatGPT, GitHub and documented provider controls. Every important repair must have evidence. Where a problem exceeds the safe capabilities of those tools, the system must identify the limitation instead of concealing it.
