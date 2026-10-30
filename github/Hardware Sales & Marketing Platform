@@ -1,0 +1,292 @@
+Hardware Sales & Marketing Platform
+
+Technical Architecture Blueprint
+
+Document version: 1.0.0
+Status: Initial architecture specification
+Approval: Architecture drafting approved; implementation not yet authorized
+Proposed stack: Next.js + Supabase + Vercel
+Initial infrastructure budget: More than KSh 5,000/month, subject to cost justification
+
+---
+
+1. Purpose
+
+Define the technical architecture for a reusable, secure, mobile-first hardware sales and marketing platform.
+
+The platform must support an initial hardware business while allowing future onboarding of independent businesses without rebuilding the application.
+
+This document is the technical source of truth. The Product Blueprint remains authoritative for product scope and business requirements.
+
+2. Architecture principles
+
+1. Mobile-first design.
+2. Low operating costs without compromising essential security.
+3. Modular, maintainable application architecture.
+4. Secure multi-business data isolation.
+5. Server-enforced permissions.
+6. Auditable financial and administrative operations.
+7. Data portability and provider migration capability.
+8. Automated testing and controlled releases.
+9. No real financial transactions in the initial website MVP.
+10. No business branding or live operations without written authorization.
+
+3. Proposed technology
+
+Layer| Proposed technology| Responsibility
+Frontend| Next.js| Website and dashboards
+Application logic| Next.js server-side functions| Business rules and secure operations
+Database| Supabase PostgreSQL| Persistent application data
+Authentication| Supabase Auth| User identity and sessions
+Authorization| PostgreSQL RLS and server checks| Access enforcement
+File storage| Supabase Storage| Product images and documents
+Hosting| Vercel Pro| Application deployment
+Source control| GitHub| Code, documentation and migrations
+Monitoring| Selected error and uptime monitoring service| Operational visibility
+
+All proposed services must undergo a current pricing, capability and terms review before production procurement.
+
+4. Application structure
+
+The platform should have distinct modules:
+
+- Public website and product catalogue.
+- Search and product filtering.
+- Basket and quotation requests.
+- Product and quantity calculator.
+- DIY Learning Centre.
+- Developer administration.
+- Hardware owner reporting.
+- Enquiry and quotation management.
+- Sales attribution and verification.
+- Commission reconciliation.
+- Campaign and performance reporting.
+- Audit and security monitoring.
+
+Modules should have clear boundaries and should not depend unnecessarily on one another.
+
+5. Multi-business architecture
+
+The application should support multiple independent businesses using a shared application and initially shared PostgreSQL database.
+
+Every business-owned record must be associated with a business identifier.
+
+Initial data entities:
+
+- Businesses
+- Users
+- Business memberships
+- Roles and permissions
+- Products
+- Product categories
+- Product price history
+- Enquiries
+- Quotations
+- Referral sources
+- Campaigns
+- Sales records
+- Sales evidence
+- Commission agreements
+- Commission calculations
+- Commission adjustments
+- Correction requests
+- Audit events
+- Uploaded documents
+
+Relationships, unique constraints, indexes and deletion rules must be specified in the database design before implementation.
+
+6. Access control
+
+Developer
+
+Authorized developer accounts may manage approved business configurations and operational records.
+
+Privileged operations must be authenticated, authorized and logged.
+
+Hardware owner
+
+The owner receives private, business-scoped, read-only access to reports and records.
+
+The owner may submit correction requests but cannot directly alter protected records, commission rates, attribution rules, sales evidence or access permissions.
+
+Security requirements
+
+- Enforce PostgreSQL Row Level Security.
+- Apply least-privilege database grants.
+- Never expose service-role credentials to the browser.
+- Validate permissions on server-side operations.
+- Prevent cross-business data access.
+- Test direct API requests, ID manipulation and unauthorized mutations.
+- Record privileged actions in an audit trail.
+
+Hiding interface controls is not an acceptable security boundary.
+
+7. Financial integrity
+
+Financial records must be traceable.
+
+A correction must preserve:
+
+- Original value.
+- Proposed replacement value.
+- Requesting user.
+- Reason.
+- Supporting evidence.
+- Reviewing administrator.
+- Decision and timestamp.
+- Resulting financial adjustment.
+
+Previously accrued or paid commission must never be silently overwritten.
+
+Commission calculations must use approved written agreements, verified completed sales and documented attribution rules.
+
+No live payments or automatic commission payouts are included in Phase 1.
+
+8. Deployment environments
+
+Maintain separate environments:
+
+Development: Sample data, feature development and experimentation.
+
+Production: Authorized business information and real customer enquiries.
+
+Production secrets must never be committed to GitHub.
+
+Database migrations must be version-controlled, reviewed and tested before production execution.
+
+Production changes require a documented rollback or mitigation plan.
+
+9. Security, privacy and reliability
+
+Required controls:
+
+- Secure authentication and session handling.
+- Server-side input validation.
+- Rate limiting and spam protection.
+- Secure file upload validation.
+- Appropriate data retention and deletion procedures.
+- Customer privacy and consent notices.
+- Audit logging for privileged operations.
+- Error monitoring and uptime checks.
+- Database and uploaded-file backups.
+- Documented recovery procedures.
+- Tested data export and restoration.
+
+Backup creation alone does not prove recoverability. Restoration must be tested.
+
+10. Four-phase implementation roadmap
+
+Phase 1: Website MVP
+
+- Responsive public website.
+- Seven hardware product categories.
+- Search and filtering.
+- Product details.
+- Basket.
+- Quotation requests.
+- Calculator using confirmed prices.
+- DIY Learning Centre.
+- FAQs and approved contact channels.
+
+No live payment processing.
+
+Phase 2: Developer operations
+
+- Secure developer login.
+- Product and category management.
+- Enquiry and quotation management.
+- Business configuration.
+- Referral and campaign records.
+- Operational reporting.
+- Audit history.
+
+Phase 3: Hardware owner dashboard
+
+- Private owner login.
+- Business-scoped read-only reports.
+- Enquiry and quotation visibility.
+- Sales and attribution reports.
+- Commission reporting where approved.
+- Correction request workflow.
+- Exportable authorized reports.
+
+Phase 4: Commission and growth
+
+- Verified sales attribution.
+- Commission reconciliation.
+- Campaign analytics.
+- Financial adjustments.
+- Multi-business onboarding.
+- Additional automation where justified.
+
+11. Backup and provider portability
+
+- Use standard PostgreSQL-compatible database structures.
+- Version-control schema migrations.
+- Keep business logic independent of hosting-specific features.
+- Back up database records and storage files separately.
+- Define backup frequency and retention.
+- Test restoration into a separate environment.
+- Document provider migration procedures.
+
+12. Testing and release gates
+
+Before any production release:
+
+1. Automated unit and integration tests.
+2. Database permission and tenant-isolation tests.
+3. Authentication and authorization tests.
+4. Input validation and abuse tests.
+5. Mobile browser testing.
+6. Real-device testing.
+7. Performance testing.
+8. Backup restoration testing.
+9. Production configuration and secret checks.
+10. Rollback and incident-response review.
+
+No feature may be described as production-ready without supporting test evidence.
+
+13. Cost governance
+
+The infrastructure budget is an allowance, not a spending target.
+
+Every paid service must have:
+
+- A documented purpose.
+- A cost estimate.
+- An identified owner.
+- Usage limits or alerts where available.
+- A review date.
+
+Avoid unnecessary premium services during development. Upgrade when security, reliability or real usage justifies the expense.
+
+14. Outstanding decisions
+
+Before implementation, complete:
+
+- Database relationship diagram.
+- Detailed table and field specification.
+- Role and permission matrix.
+- RLS policy design.
+- API and server-operation boundaries.
+- Hosting and database cost verification.
+- Email provider selection.
+- Backup and restoration plan.
+- Monitoring selection.
+- Privacy and retention policy.
+- Commission and attribution specification.
+- Written business authorization process.
+
+15. Change governance
+
+Changes to this architecture require:
+
+1. A documented reason.
+2. Impact assessment.
+3. Security and cost assessment.
+4. Review against the Product Blueprint.
+5. Approval before implementation.
+6. Updated documentation.
+7. Appropriate testing and verification.
+
+Current status: Architecture specification in preparation. No production application has been implemented or tested under this specification.
