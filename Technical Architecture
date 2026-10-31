@@ -1,0 +1,439 @@
+HARDWARE SALES & MARKETING PLATFORM — PRODUCT BLUEPRINT
+
+Version: 2.0.0
+Status: Proposed specification
+Project stage: Planning and technical design
+Product type: Reusable, multi-business-capable platform
+
+1. Product Vision
+
+Build a secure, mobile-first platform that helps hardware businesses present products, receive enquiries, prepare quotations, manage sales leads and measure attributable sales.
+
+The platform must be reusable. A business must be configurable without changing the core application code for every new client.
+
+The first implementation will serve one authorized business. The architecture must prepare for future businesses while ensuring that each business's records remain isolated.
+
+The initial release will not process live customer payments.
+
+2. Product Principles
+
+- Mobile usability and reliable operation take priority.
+- Business data must be accurate and traceable.
+- Prices and stock availability must never be invented.
+- The platform must remain usable without AI services.
+- Security and privacy must be designed before implementation.
+- Financial records must be auditable.
+- New features must not compromise existing functionality.
+- Avoid unnecessary complexity and recurring costs.
+
+3. Business Configuration and Branding
+
+Each business must eventually have configurable:
+
+- Business name and approved logo.
+- Contact information and location.
+- Brand colors and approved visual assets.
+- Product categories and subcategories.
+- Product catalogue and selling units.
+- Enquiry and quotation contact routes.
+- Applicable business terms and policies.
+
+A business's branding and information must not be hardcoded into shared application logic.
+
+No business identity, branding, product data or contact details may be used in a live deployment without authorization.
+
+Mwangaza Hardware is a possible first client or demonstration business, subject to the owner's approval. It is not the permanent identity of the platform.
+
+4. Main Customer Navigation
+
+The initial website may include:
+
+1. Home.
+2. Products.
+3. Materials Calculator.
+4. Learning Centre.
+5. Help and FAQs.
+6. About the Business.
+7. Contact.
+
+A basket or selected-items summary must be accessible on mobile and desktop.
+
+Navigation labels and sections should be configurable where practical.
+
+5. Product Categories
+
+The first hardware-business configuration may use these categories:
+
+1. Building Items.
+2. Plumbing Appliances and Accessories.
+3. Electrical Items.
+4. Electronics Items.
+5. Water Supply Items.
+6. Interior Design Items.
+7. Home Appliances.
+
+Categories and subcategories must be manageable without requiring code changes.
+
+A product must only appear in categories to which it has intentionally been assigned.
+
+6. Product Catalogue
+
+A product record should support:
+
+- Unique identifier.
+- Business identifier.
+- Product name.
+- Main category and optional subcategory.
+- Product images.
+- Description.
+- Brand, model and specifications where relevant.
+- Selling unit.
+- Confirmed selling price, when available.
+- Availability status, when verified.
+- Search keywords.
+- Publication status.
+- Created and updated timestamps.
+- Record history where required.
+
+Product management rules
+
+Authorized administrators must eventually be able to:
+
+- Add products.
+- Edit product details.
+- Change prices.
+- Update availability.
+- Publish or unpublish products.
+- Archive discontinued products.
+- Manage categories and product attributes.
+
+Product attributes must be configurable where appropriate. Changes to an attribute must not silently erase historical quotation or sales information that depended on it.
+
+Use archival or deactivation instead of destructive deletion when records are referenced by enquiries, quotations or sales.
+
+Sample data must be visibly identified as demonstration data.
+
+7. Product Browsing and Search
+
+Customers should be able to:
+
+- Browse categories.
+- Search by product name, brand or keyword.
+- Filter by relevant attributes.
+- View product details and specifications.
+- See confirmed prices and selling units.
+- See whether a quotation is required.
+- Add products to a selection basket.
+
+Browsing and search must remain functional without AI services.
+
+Search must handle empty results, spelling variations where practical, and unavailable products gracefully.
+
+8. Basket and Quotation Requests
+
+The first release provides a selection basket, not live checkout.
+
+Customers should be able to:
+
+- Add products.
+- Enter quantities.
+- Change quantities.
+- Remove items.
+- Continue browsing.
+- Review selected items.
+- View eligible line totals and estimated subtotal.
+- Include products requiring a quotation.
+- Submit a quotation request.
+
+Calculation rules
+
+Line amount = Quantity × Confirmed unit price.
+
+Subtotal = Sum of eligible line amounts.
+
+Do not calculate an unknown price as zero.
+
+Do not present an estimated subtotal as a final payable amount.
+
+Taxes, discounts, delivery charges and other fees must only be calculated using approved business rules.
+
+The system must identify which items have confirmed prices and which require a quotation.
+
+Basket persistence must consider shared-device privacy, browser storage limitations and accidental data loss.
+
+9. Measurement and Units
+
+The platform must support metric and imperial units where appropriate.
+
+Examples include:
+
+- Millimetres and inches.
+- Metres and feet.
+- Square metres and square feet.
+- Kilograms and pounds.
+- Litres and gallons.
+
+Unit conversions must use documented conversion factors and consistent rounding rules.
+
+The system must not add or compare incompatible units.
+
+Original entered values and units should be retained where needed for quotation and audit purposes.
+
+10. Enquiry and Quotation Workflow
+
+The customer should provide only the information necessary to process an enquiry.
+
+The system must:
+
+- Validate required fields on the server.
+- Protect submitted customer information.
+- Record the selected products and quantities.
+- Generate a unique enquiry reference.
+- Confirm receipt only after successful submission.
+- Prevent or identify accidental duplicate submissions.
+- Provide a clear failure message and alternative contact route.
+- Allow authorized staff to review and respond.
+- Preserve enquiry history.
+
+A controlled WhatsApp handoff may be offered as an alternative. It must not be represented as a successfully received enquiry unless receipt is verified.
+
+A quotation becomes confirmed only after an authorized business representative verifies prices, availability and terms.
+
+11. Materials Calculator
+
+The calculator should use authoritative product and pricing information wherever applicable.
+
+It must support suitable quantities, units, line amounts and totals.
+
+Calculation formulas, conversion factors, rounding rules and assumptions must be documented and tested.
+
+Unknown prices, taxes, delivery charges or discounts must not be invented.
+
+Where calculations are estimates, the interface must clearly identify them as estimates.
+
+12. Learning Centre and Customer Support
+
+The Learning Centre may provide reviewed guidance on:
+
+- Building-material selection.
+- Plumbing products and fittings.
+- Electrical-product basics and safety.
+- Water storage and pumping.
+- Interior finishes and lighting.
+- Home-appliance selection.
+- Material estimation and purchasing mistakes.
+
+Safety-critical instructions must be reviewed and must not encourage unqualified work.
+
+Customer support may include FAQs, verified contact details, approved WhatsApp links and other authorized channels.
+
+AI or automated support must be assessed for accuracy, privacy, reliability and operating cost before activation.
+
+13. Development Phases
+
+Phase 1 — Website MVP
+
+- Business-configured website.
+- Product catalogue and search.
+- Product details.
+- Basket and quotation requests.
+- Materials calculator.
+- Learning content.
+- Contact channels.
+- Basic privacy and analytics controls.
+
+No live payments, commission deductions or owner financial dashboard.
+
+Phase 2 — Business Operations
+
+- Secure administrator authentication.
+- Product and category management.
+- Enquiry management.
+- Quotation workflow.
+- Sales evidence records where authorized.
+- Audit history.
+- Role-based permissions.
+
+Phase 3 — Owner Dashboard
+
+- Private business reporting.
+- Read-only access to business records.
+- Enquiry and quotation summaries.
+- Approved sales reports.
+- Correction-request submission.
+- Audit and correction history.
+
+The owner dashboard must not allow owners to silently edit or delete financial, attribution or historical records.
+
+Phase 4 — Commission and Growth
+
+- Verified sales attribution.
+- Commission calculation and reconciliation.
+- Campaign performance reporting.
+- Financial adjustments and dispute handling.
+- Multi-business onboarding.
+- Additional integrations after security and cost review.
+
+Each phase must pass its own acceptance criteria before being treated as complete.
+
+14. Sales Attribution and Commission
+
+Commission is a future feature and requires a written agreement with the participating business.
+
+The agreement and implementation must define:
+
+- What qualifies as a completed sale.
+- Which evidence proves the sale.
+- Attribution rules for website, walk-in, phone and WhatsApp customers.
+- Attribution window.
+- Repeat purchases.
+- Partial payments.
+- Refunds and cancellations.
+- Commission rate and calculation basis.
+- Commission due date.
+- Disputes and adjustments.
+
+An enquiry, quotation request or click alone is not a completed sale.
+
+Commission must not be calculated as payable until the relevant sale and agreement conditions are verified.
+
+Advertising spend, business revenue, provider fees and agency commission must be accounted for separately.
+
+Customer payments must go to an authorized business merchant account, never an agency personal account.
+
+15. Owner Dashboard and Correction Requests
+
+The owner dashboard is private and read-only for business records.
+
+Owners may view authorized reports and submit correction requests.
+
+Owners must not directly edit or delete:
+
+- Sales records.
+- Payment evidence.
+- Commission rates or accrued commission.
+- Attribution rules.
+- Audit history.
+- User permissions.
+- Developer or system controls.
+
+A correction request must contain:
+
+- Affected record.
+- Description of the issue.
+- Proposed correction.
+- Reason.
+- Supporting evidence where available.
+
+Request states:
+
+1. Submitted.
+2. Under review.
+3. Approved.
+4. Rejected.
+5. More information required.
+6. Resolved.
+
+Every decision must record the responsible administrator, date and time, reason and resulting action.
+
+Original values and financial history must be preserved. Approved corrections must create traceable adjustments rather than silently overwrite accrued or paid records.
+
+These restrictions must be enforced by database permissions and server-side authorization, not merely by hiding interface controls.
+
+16. Developer and Administrator Workspace
+
+Authorized administrators may eventually manage:
+
+- Approved business configuration.
+- Products and categories.
+- Enquiries and quotations.
+- Sales evidence.
+- Commission reconciliation.
+- Correction requests.
+- User access and permissions.
+- Campaign and reporting configuration.
+- Operational monitoring.
+
+Privileged actions must be authenticated, authorized, validated and audited.
+
+No administrator should have unnecessary access to customer information or financial records.
+
+17. Multi-Business Data Isolation
+
+The initial release may serve one business, but the data model must be designed for future business separation.
+
+Business-owned records must be associated with a business identifier.
+
+Database access policies must ensure that one business cannot read or change another business's records.
+
+Tenant isolation must be tested at the database and server layers.
+
+Do not rely on interface filtering as a security boundary.
+
+Multi-business onboarding must not be activated until authorization, permissions, isolation and recovery procedures have been verified.
+
+18. Security, Privacy and Reliability
+
+Required controls include:
+
+- Secure authentication.
+- Server-side authorization.
+- Database-level access policies.
+- Input validation and output encoding.
+- Protection against spam and abusive requests.
+- Rate limiting where appropriate.
+- Secure secret management.
+- HTTPS in production.
+- Data minimization and clear privacy notices.
+- Defined data retention and deletion procedures.
+- Protected file uploads and storage.
+- Audit logging for sensitive actions.
+- Backups for database and stored files.
+- Tested restoration procedures.
+- Monitoring and error reporting.
+- Documented incident and recovery procedures.
+
+No system can be guaranteed never to fail. The objective is to reduce foreseeable failures, detect incidents and recover without unacceptable data loss.
+
+19. Performance, Accessibility and Device Compatibility
+
+The platform must:
+
+- Use responsive mobile-first layouts.
+- Work on common Android devices and browsers.
+- Optimize images and other assets.
+- Avoid unnecessary scripts and dependencies.
+- Provide loading, empty, error and success states.
+- Use accessible labels and keyboard navigation.
+- Maintain readable contrast and text sizes.
+- Test slow connections and interrupted submissions.
+- Monitor performance after deployment.
+
+20. Initial Website Acceptance Criteria
+
+Phase 1 is not ready for release until:
+
+- Approved business configuration is present.
+- Product categories and catalogue operate correctly.
+- Search and filters work.
+- Product details display accurate information.
+- Basket operations work.
+- Calculations use verified prices and compatible units.
+- Unpriced products can be included in enquiries.
+- Enquiry submission and failure states are tested.
+- Customer information is protected.
+- The site works on representative Android devices.
+- Required automated tests pass.
+- Security checks pass.
+- Backup and recovery arrangements are documented.
+- Release and rollback procedures are tested.
+
+21. Implementation Principle
+
+Build incrementally. Define the architecture before coding, test each change, preserve working functionality and document important decisions.
+
+Do not introduce future-phase features into the MVP without an approved reason.
+
+Do not claim that a feature, security control or release is complete without verification evidence.
+
+The objective is a maintainable, secure and commercially usable platform that can grow without sacrificing data integrity or reliability.
